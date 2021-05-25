@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AC0C8939-CEAB-476B-BE68-407553E55AD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-compose-volumes", "docker-compose-volumes", "{19820796-A0E0-476B-968C-137C0FA4999F}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-volumes\pgadmin_servers.json = docker-compose-volumes\pgadmin_servers.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tributech.Dataspace.Workflow.Common", "src\workflows\Tributech.Dataspace.Workflow.Common\Tributech.Dataspace.Workflow.Common.csproj", "{C5CBF815-4D26-4AD4-BACF-31B560332805}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tributech.Dataspace.Workflow.Example", "src\workflows\Tributech.Dataspace.Workflow.Example\Tributech.Dataspace.Workflow.Example.csproj", "{B1FB9A75-E214-4D06-82AE-F9848984F3C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tributech.Dataspace.WorkflowHost", "src\workflows\Tributech.Dataspace.WorkflowHost\Tributech.Dataspace.WorkflowHost.csproj", "{6A8ED755-2BB2-436E-B11A-FBDDCA07B757}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CI", "CI", "{B8583E4C-B3D9-45B5-A745-F857C0B3A70F}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{67C628D5-4FB7-438C-BC17-F49AC2CF745C}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC0C8939-CEAB-476B-BE68-407553E55AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC0C8939-CEAB-476B-BE68-407553E55AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC0C8939-CEAB-476B-BE68-407553E55AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC0C8939-CEAB-476B-BE68-407553E55AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5CBF815-4D26-4AD4-BACF-31B560332805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5CBF815-4D26-4AD4-BACF-31B560332805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5CBF815-4D26-4AD4-BACF-31B560332805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5CBF815-4D26-4AD4-BACF-31B560332805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1FB9A75-E214-4D06-82AE-F9848984F3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1FB9A75-E214-4D06-82AE-F9848984F3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1FB9A75-E214-4D06-82AE-F9848984F3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1FB9A75-E214-4D06-82AE-F9848984F3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A8ED755-2BB2-436E-B11A-FBDDCA07B757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A8ED755-2BB2-436E-B11A-FBDDCA07B757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A8ED755-2BB2-436E-B11A-FBDDCA07B757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A8ED755-2BB2-436E-B11A-FBDDCA07B757}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {774FF6D5-00D0-4B51-92F5-D5BFE57AFD5F}
+	EndGlobalSection
+EndGlobal

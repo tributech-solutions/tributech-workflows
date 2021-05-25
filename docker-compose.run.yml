@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+
+  workflows:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5050
+    networks:
+      - internal-net
+    ports:
+    - "5050:5050"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    restart: always
+
+  postgres:
+    image: postgres:12
+    restart: always
+    environment:
+      PGDATA: /data/postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeme
+    networks:
+      - internal-net
+    ports:
+      - "5052:5432"
+    volumes:
+      - postgres:/data/postgres # named volume to avoid permission issue "data directory has wrong ownership"
+
+networks:
+  internal-net:
+
+volumes:
+  postgres:

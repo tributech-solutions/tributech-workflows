@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+  workflows:
+    build:
+      context: ./src
+      dockerfile: ./workflows/Tributech.Dataspace.WorkflowHost/Dockerfile
