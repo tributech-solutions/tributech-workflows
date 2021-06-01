@@ -12,6 +12,8 @@ As a general guide line - use the "Tributech.Dataspace.Workflow.Example" project
 ## Create a new project
 All workflows are currently organized as their own project and we strongly suggest to create a new project for your workflow as well.
 
+Make sure that the new project is handled correctly in the **Dockerfile** (src\workflows\Tributech.Dataspace.WorkflowHost\Dockerfile)
+
 ## Scheduling types
 ### Job
 **Tributech.Dataspace.Workflow.Common.Job**
@@ -31,11 +33,11 @@ Workflows offer to split up the workload into multiple steps. The input/output o
 Call your workflows from either a job or service, depending on what timing method fits the use case best.
 
 ## Business Logic
-Once you found a scheduling type that fits your requirements, your business logic will end up either in steps or directly in a job/service, if the granularity of a workflow is not required.
+Once you found a scheduling type, that fits your requirements, your business logic will either end up in steps or directly in a job/service, if the granularity of a workflow is not required.
 
 ## Wiring up the workflow
-First, add an entry to the "WorkflowSets" class. Its data is generated from the appsettings.json file and will be used to decide, which services/jobs/workflows will be setup.
+First, add an entry to the "WorkflowSets" class. Its data is generated from the appsettings.json file and will be used to decide, which services/jobs/workflows will be setup so adjust the appsettings file accordingly.
 
-Head to **Tributech.Dataspace.WorkflowHost/Infrastructure/Registrations** to see all the registrations and plug your classes where necessary. Please note, that a workflow will not work, unless all its steps are registered too!
+Afterwards, head to **Tributech.Dataspace.WorkflowHost/Infrastructure/Registrations** to see all the registrations and plug your classes where necessary. Please note, that a workflow will not work, unless all its steps are registered too!
 
 Custom configurations should be registered in the **CoreRegistration**.
