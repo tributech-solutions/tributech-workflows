@@ -19,6 +19,9 @@ RUN dotnet publish "Tributech.Dataspace.WorkflowHost.csproj" -c Release -o /app/
 
 FROM base AS final
 EXPOSE 5050
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends curl \
+	&& rm -rf /var/lib/apt/lists/*
 HEALTHCHECK --interval=30s --timeout=30s CMD curl -L --silent --fail --show-error http://localhost:5050/health || exit 1
 WORKDIR /app
 COPY --from=publish /app/publish .
