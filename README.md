@@ -2,11 +2,12 @@
 
 Tributech Workflows contains executions pipelines for different use cases.
 
-## Setting up with docker
+## UI
 
 After deploying the service with docker compose you can get to the UI with http://localhost:5050/hangfire
 
-# Developement
+# Development
+Workflows is built on the ASP.NET framework (https://dotnet.microsoft.com/apps/aspnet) and uses the Hangfire (https://www.hangfire.io/) and Workflow Core (https://github.com/danielgerlag/workflow-core) libraries. 
 As a general guide line - use the "Tributech.Dataspace.Workflow.Example" project to get a starting point.
 
 ## Create a new project
@@ -36,8 +37,13 @@ Call your workflows from either a job or service, depending on what timing metho
 Once you found a scheduling type, that fits your requirements, your business logic will either end up in steps or directly in a job/service, if the granularity of a workflow is not required.
 
 ## Wiring up the workflow
-First, add an entry to the "WorkflowSets" class. Its data is generated from the appsettings.json file and will be used to decide, which services/jobs/workflows will be setup so adjust the appsettings file accordingly.
-
+First, add an entry to the "WorkflowSets" class. Its data is generated from the appsettings.json file and will be used to decide, which services/jobs/workflows will be setup so adjust the appsettings file accordingly.  
 Afterwards, head to **Tributech.Dataspace.WorkflowHost/Infrastructure/Registrations** to see all the registrations and plug your classes where necessary. Please note, that a workflow will not work, unless all its steps are registered too!
 
 Custom configurations should be registered in the **CoreRegistration**.
+
+# Environment
+In order to run Workflows on a server it needs to have "docker" and "docker-compose installed.  
+The Workflnows service also requires an accessable postgresql database to run.
+
+Check out the docker-compose files at the top level of the solution to give you an idea how such a docker-compose deployment file could look like.
