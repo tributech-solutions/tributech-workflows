@@ -44,6 +44,6 @@ Custom configurations should be registered in the **CoreRegistration**.
 
 # Environment
 In order to run Workflows on a server it needs to have "docker" and "docker-compose" installed.  
-The Workflnows service also requires an accessable postgresql database to run.
+The Workflows service also requires an accessable postgresql database to run.
 
 Check out the docker-compose files at the top level of the solution to give you an idea how such a docker-compose deployment file could look like.
