@@ -42,8 +42,23 @@ Afterwards, head to **Tributech.Dataspace.WorkflowHost/Infrastructure/Registrati
 
 Custom configurations should be registered in the **CoreRegistration**.
 
+# Build
+To build the project, "docker" and "docker-compose" is required. Head to the top level directory and execute the following command to build the project with docker-compose.
+```
+docker-compose -f "docker-compose.yml" -f "docker-compose.ci.build.yml" build
+```
+To change the name of the image, edit the "docker-compose.ci.build.yml" file.
+
 # Deployment
 In order to run Tributech Workflows on a server it needs to have "docker" and "docker-compose" installed.  
 The Tributech Workflows service also requires an accessable PostgreSQL database (https://www.postgresql.org/) to run.
 
 Check out the docker-compose files at the top level of the solution to give you an idea how such a docker-compose deployment file could look like.
+
+The project will either have to be built on the server directly or a (private) docker registry needs to be set up to distribute the image.
+Note, that a private docker repository will also require an authentication from the deployment server, specific to the registry.
+
+As soon as a valid docker-compose file is set up, the deployment can be done with:
+```
+docker-compose up -d
+```
