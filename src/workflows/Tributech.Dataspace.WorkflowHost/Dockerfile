@@ -1,10 +1,10 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim as base
 LABEL vendor="Tributech.io Solutions"
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY ["workflows/Tributech.Dataspace.WorkflowHost/Tributech.Dataspace.WorkflowHost.csproj", "workflows/Tributech.Dataspace.WorkflowHost/"]
 COPY ["workflows/Tributech.Dataspace.Workflow.Common/Tributech.Dataspace.Workflow.Common.csproj", "workflows/Tributech.Dataspace.Workflow.Common/"]
@@ -19,6 +19,9 @@ RUN dotnet publish "Tributech.Dataspace.WorkflowHost.csproj" -c Release -o /app/
 
 FROM base AS final
 EXPOSE 5050
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends curl \
+	&& rm -rf /var/lib/apt/lists/*
 HEALTHCHECK --interval=30s --timeout=30s CMD curl -L --silent --fail --show-error http://localhost:5050/health || exit 1
 WORKDIR /app
 COPY --from=publish /app/publish .
